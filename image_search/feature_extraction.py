@@ -1,6 +1,8 @@
 # vgg19_feature_extraction.py
-from tensorflow.keras.applications.vgg19 import VGG19, preprocess_input
-from tensorflow.keras.models import Model
+from tensorflow import keras
+from keras.models import Model
+from keras.applications.vgg19 import VGG19, preprocess_input
+
 from skimage.feature import local_binary_pattern
 import numpy as np
 import cv2
