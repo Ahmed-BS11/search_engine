@@ -7,6 +7,7 @@ from skimage.feature import local_binary_pattern
 import numpy as np
 import cv2
 import os
+import pandas as pd
 
 
 # Load pre-trained VGG19 model
@@ -55,9 +56,16 @@ def get_image_files(root_dir):
 root_directory = r"C:\Users\ahmed\Desktop\Supcom\INDP3_AIM\cbir\bdimage\image_db" 
 image_files = get_image_files(root_directory)
 
-# Print the list of image file paths
+final_vector_list=[]
+
 for image_path in image_files[:5]:
     vgg_features=extract_vgg19_features(image_path)
     lbp_features=extract_lbp_features(image_path)
     final_vector=combine_features(vgg_features, lbp_features)
-    print(final_vector)
+    final_vector_list.append(final_vector)
+
+
+
+feature_vector_df = pd.DataFrame(final_vector_list)
+feature_vector_df.to_csv("feature_vectors.csv", index=False)
+
