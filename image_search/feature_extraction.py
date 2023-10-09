@@ -56,5 +56,8 @@ root_directory = r"C:\Users\ahmed\Desktop\Supcom\INDP3_AIM\cbir\bdimage\image_db
 image_files = get_image_files(root_directory)
 
 # Print the list of image file paths
-"""for img_path in image_files:
-    print(img_path)"""
+for image_path in image_files[:5]:
+    vgg_features=extract_vgg19_features(image_path)
+    lbp_features=extract_lbp_features(image_path)
+    final_vector=combine_features(vgg_features, lbp_features)
+    print(final_vector)
