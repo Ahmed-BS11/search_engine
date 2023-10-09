@@ -41,6 +41,7 @@ def get_image_files(root_dir):
 
     for category in os.listdir(root_dir):
         category_path = os.path.join(root_dir, category)
+        print(category_path)
         if os.path.isdir(category_path):
             for root, _, files in os.walk(category_path):
                 for file in files:
@@ -49,10 +50,9 @@ def get_image_files(root_dir):
 
     return image_files
 
-if __name__ == "__main__":
-    root_directory = r"C:\Users\ahmed\Desktop\Supcom\INDP3_AIM\cbir\bdimage\image_db" 
-    image_files = get_image_files(root_directory)
+root_directory = r"C:\Users\ahmed\Desktop\Supcom\INDP3_AIM\cbir\bdimage\image_db" 
+image_files = get_image_files(root_directory)
 
-    # Print the list of image file paths
-    for img_path in image_files:
-        print(img_path)
+# Print the list of image file paths
+"""for img_path in image_files:
+    print(img_path)"""
